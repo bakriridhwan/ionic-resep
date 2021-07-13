@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title color="tertiary">
+
+      <span style="margin-left: 10px; font-family: cursive;"><b>ResepApp</b></span>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
+      <ion-button>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <ion-icon name="menu-outline" style="transform: scale(2); margin-left: 20px;" (click)="openFirst()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title><span style="margin-left: 10px; font-family: cursive;"><b>ResepApp Menu</b></span></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2" routerLink="/kategoris">
+            <ion-icon name="file-tray-stacked-outline" style="transform: scale(1.5); margin-top: 20px; margin-left: 20px;"></ion-icon>
+          </ion-col>
+          <ion-col routerLink="/kategoris">
+            <ion-item style="font-family: Open Sans;"><b> Kategori</b></ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2" routerLink="/localstorage">
+            <ion-icon name="bookmarks-outline" style="transform: scale(1.5); margin-top: 20px; margin-left: 20px;"></ion-icon>
+          </ion-col>
+          <ion-col routerLink="/localstorage">
+            <ion-item style="font-family: Open Sans;"><b> Local Storage</b></ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <!-- <ion-row>
+          <ion-col size="2" routerLink="/image-upload">
+            <ion-icon name="camera-outline" style="transform: scale(1.5); margin-top: 20px; margin-left: 20px;"></ion-icon>
+          </ion-col>
+          <ion-col routerLink="/image-upload">
+            <ion-item style="font-family: Open Sans;"><b> Image Upload</b></ion-item>
+          </ion-col>
+        </ion-row> -->
+      </ion-grid>
+
+
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content>
+
+
+
+  <!-- !=================================================== -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+</ion-refresher>
+
+  <!-- <h4 style="margin-left: 10px; font-family: cursive; color: rgb(54, 52, 52);"><b>ResepApp</b></h4> -->
+  <p style="margin-left: 10px; font-family: Open Sans;">Beranda</p>
+
+  <ion-list>
+    <ion-card *ngFor="let resep of reseps$|async" (click)="openDetailModal(resep)" style="margin-bottom: 20px;">
+      <ion-card-header>
+
+          <img [src]="resep.gambar">
+
+        <ion-card-subtitle>{{ resep.jenis }}</ion-card-subtitle>
+        <ion-card-title><b>{{ resep.judul }}</b></ion-card-title>
+      </ion-card-header>
+
+      <!-- <ion-card-content>
+        {{ resep.deskripsi }}
+      </ion-card-content> -->
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 20px;">
+    <ion-fab-button color="tertiary" routerLink="/add-resep">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <!-- <ion-fab-list side="start">
+    <ion-fab-button routerLink="/kategoris">
+      <ion-icon name="file-tray-stacked-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button routerLink="/localstorage">
+      <ion-icon name="bookmarks-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button routerLink="/add-resep">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button> -->
+
+    <!-- <ion-fab-button routerLink="/image-upload">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button> -->
+  <!-- </ion-fab-list> -->
+  </ion-fab>
+
+</ion-content>
+

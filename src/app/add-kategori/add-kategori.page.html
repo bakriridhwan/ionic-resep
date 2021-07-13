@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>{{ isEditMode ? 'Update' : 'Tambah' }} Kategori</ion-title>
+    <ion-buttons slot="start" *ngIf="!isEditMode">
+      <ion-back-button defaultHref="kategoris"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="isEditMode">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]='form'>
+
+      <ion-item>
+        <ion-label position="floating">Nama Kategori</ion-label>
+        <ion-input formControlName="nama_kategori"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Gambar Kategori <b>(URL)</b></ion-label>
+        <ion-input formControlName="gambar_kategori"></ion-input>
+      </ion-item>
+      <!-- <ion-button (click)="imagePicker()">Select Images</ion-button> -->
+
+      <ion-item>
+        <ion-label position="floating">Deskripsi Kategori</ion-label>
+        <ion-textarea formControlName="deskripsi_kategori"></ion-textarea>
+      </ion-item>
+
+
+    <ion-button expand="block" class="btnSimpan" (click) = "submitKategori()" [disabled] = "form.invalid">
+      {{ isEditMode ? 'Update' : 'Simpan' }} Kategori
+    </ion-button>
+
+  </form>
+</ion-content>

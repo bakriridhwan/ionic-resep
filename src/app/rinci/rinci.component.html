@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>{{ kategori.nama_kategori }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-icon name="settings-outline" style="margin: 15px;" (click)="presentActionSheet()"></ion-icon>
+        <ion-button (click)="closeModal()">
+          <ion-icon slot="end" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img [src]="kategori.gambar_kategori" position="center">
+
+  <div class="ion-padding">
+    <ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h1><b>{{ kategori.nama_kategori }}</b></h1>
+          </ion-col>
+          <!-- <ion-col style="margin-top: 30px;">
+            <ion-icon name="bookmarks-outline" (click)="save()"></ion-icon>
+          </ion-col> -->
+        </ion-row>
+      </ion-grid>
+
+
+      <p>{{ kategori.deskripsi_kategori }}</p>
+    </ion-text>
+  </div>
+
+  <!-- <ion-grid>
+  <ion-row style="text-align: center;">
+    <ion-col>
+      <ion-button expand="block" (click)="openEditModal()">Edit</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="danger" (click)="onDeleteKategori()">Hapus</ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button expand="block" color="dark" >Coba</ion-button>
+    </ion-col>
+  </ion-row>
+  </ion-grid> -->
+
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>{{ resep.judul }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">
+          <ion-icon slot="start" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img [src]="resep.imageUrl">
+
+  <div class="ion-padding">
+    <ion-text>
+      <img [src]="resep.gambar">
+      <ion-list>
+        <ion-item>
+          <ion-label>Kategori : <b>{{ resep.jenis }}</b></ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nama Resep : <b>{{ resep.judul }}</b></ion-label>
+        </ion-item>
+      </ion-list>
+      <p>Deskripsi : <br><b>{{ resep.deskripsi }}</b></p>
+      <p><b> Bahan : </b><br><b>{{ resep.bahan }}</b></p>
+      <p><b> Alat : </b><br><b>{{ resep.alat }}</b></p>
+      <p><b> Langkah : </b><br><b>{{ resep.langkah }}</b></p>
+    </ion-text>
+
+    <!-- <ion-button expand="block" (click)="openEditModal()">Edit</ion-button>
+    <ion-button expand="block" color="danger" (click)="onDeleteResep()">Delete</ion-button> -->
+
+
+    <!-- <ion-grid>
+      <ion-row style="text-align: center; margin-top: 20px;">
+        <ion-col>
+          <ion-button expand="block" (click)="openEditModal()">Edit</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" color="danger" (click)="onDeleteResep()">Hapus</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+
+  </div>
+
+
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Local Storage</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="reseps"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+</ion-refresher>
+
+  <p style="margin-left: 10px; font-family: Open Sans;">Favorit</p>
+
+  <ion-card>
+<img [src]="fav.gambar_kategori" position="center">
+
+  <div class="ion-padding">
+    <ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="11">
+            <h1><b>{{ fav.nama_kategori }}</b></h1>
+          </ion-col>
+          <!-- <ion-col style="margin-top: 30px;">
+            <ion-icon name="bookmarks-outline" (click)="save()"></ion-icon>
+          </ion-col> -->
+        </ion-row>
+      </ion-grid>
+
+
+      <p>{{ fav.deskripsi_kategori }}</p>
+    </ion-text>
+  </div>
+
+  </ion-card>
+</ion-content>
